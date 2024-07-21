@@ -1,5 +1,5 @@
-async function renderString (text, locals = {}) {
-  return await this.instance.renderString(text, locals)
+async function renderString (text, params = {}) {
+  return await this.instance.renderString(text, params)
 }
 
 export default renderString

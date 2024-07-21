@@ -7,8 +7,8 @@ async function view () {
     await extend.call(this, type)
   }
   return {
-    name: 'Nunjucks',
-    fileExts: ['.njk']
+    name: 'nunjucks',
+    fileExts: ['.njk', '.mdnjk']
   }
 }
 
