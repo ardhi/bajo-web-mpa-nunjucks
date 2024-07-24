@@ -1,14 +1,16 @@
 import loader from '../lib/engine/loader.js'
 import extend from '../lib/engine/extend.js'
 
-async function view () {
-  await loader.call(this)
+async function view (ctx) {
+  const me = this
+  await loader.call(me)
   for (const type of ['global', 'filter', 'extension']) {
-    await extend.call(this, type)
+    await extend.call(me, type)
   }
+
   return {
     name: 'nunjucks',
-    fileExts: ['.njk', '.mdnjk']
+    fileExts: '.njk'
   }
 }
 

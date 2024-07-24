@@ -1,8 +1,7 @@
-import * as cheerio from 'cheerio'
-
 class Script {
-  constructor (plugin) {
+  constructor (plugin, cheerio) {
     this.plugin = plugin
+    this.cheerio = cheerio
     this.tags = ['script']
   }
 
@@ -19,7 +18,7 @@ class Script {
   run (context, ...args) {
     const { isEmpty } = this.plugin.app.bajo.lib._
     const body = args.pop()
-    const $ = cheerio.load(body())
+    const $ = this.cheerio.load(body())
     let content = $('script').text()
     if (isEmpty(content)) content = body()
     context.ctx._meta.script = context.ctx._meta.script ?? []
@@ -27,8 +26,10 @@ class Script {
   }
 }
 
-function script () {
-  return new Script(this)
+async function script () {
+  const { importPkg } = this.app.bajo
+  const cheerio = await importPkg('bajoWebMpa:cheerio')
+  return new Script(this, cheerio)
 }
 
 export default script

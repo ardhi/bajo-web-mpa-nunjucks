@@ -29,7 +29,6 @@
   },
   "homepage": "https://github.com/ardhi/bajo-web-mpa-nunjucks#readme",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.12",
     "nunjucks": "^3.2.4"
   }
 }

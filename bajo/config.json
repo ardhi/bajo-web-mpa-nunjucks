@@ -1,4 +1,5 @@
 {
   "alias": "mpanjk",
+  "noCache": true,
   "dependencies": ["bajo-web-mpa"]
 }
